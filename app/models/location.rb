@@ -13,4 +13,8 @@ class Location < ApplicationRecord
     #stub
     nil
   end
+
+  def address2
+    "#{city}, #{state} #{zip}"
+  end
 end

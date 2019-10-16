@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :rating, presence: true, numericality: { only_integer: true }, :inclusion => { :in => 1..5 }
+  validates :rating, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+  validates :speed_data, numericality: { greater_than: 0 }
 
   belongs_to :user
   belongs_to :location

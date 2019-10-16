@@ -16,7 +16,7 @@ class Location < ApplicationRecord
       return nil
     else
       sum = reviews.sum { |review| review.rating }
-      sum.fdiv(reviews.length)
+      return sum.fdiv(reviews.length)
     end
   end
 end

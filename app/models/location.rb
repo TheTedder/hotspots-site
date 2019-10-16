@@ -9,9 +9,15 @@ class Location < ApplicationRecord
   validates :password_protected, inclusion: { in: [true, false] }, allow_nil: true
   validates :zip, numericality: { only_integer: true }, presence: true
 
+  has_many :reviews
+
   def average_rating
-    #stub
-    nil
+    if reviews.empty?
+      return nil
+    else
+      sum = reviews.sum { |review| review.rating }
+      return sum.fdiv(reviews.length)
+    end
   end
 
   def address2

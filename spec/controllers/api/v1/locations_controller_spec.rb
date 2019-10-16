@@ -35,10 +35,10 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(response.status).to eq(200)
       expect(response.content_type).to eq('application/json')
 
-      expect(returned_json.length).to eq(2)
-      expect(returned_json[0]['name']).to eq('Nero')
-      expect(returned_json[1]['name']).to eq('Cafe')
-      expect(returned_json[1]['password_protected']).to eq(true)
+      expect(returned_json['locations'].length).to eq(2)
+      expect(returned_json['locations'][0]['name']).to eq('Nero')
+      expect(returned_json['locations'][1]['name']).to eq('Cafe')
+      expect(returned_json['locations'][1]['password_protected']).to eq(true)
     end
   end
 end

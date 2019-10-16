@@ -42,4 +42,18 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(returned_json['locations']).to all(include('average_rating'))
     end
   end
+
+  describe 'GET#show' do
+    it 'should return all the information on one location' do
+      get :show, params: {id: location1.id}
+      returned_json = JSON.parse(response.body)
+      expect(response.status).to eq(200)
+      expect(response.content_type).to eq('application/json')
+
+      expect(returned_json['location']['name']).to eq('Nero')
+      expect(returned_json['location']['address']).to eq('20 Beach Street')
+      expect(returned_json['location']['average_rating']).to eq(nil)
+      expect(returned_json['location']['price']).to eq(nil)
+    end
+  end
 end

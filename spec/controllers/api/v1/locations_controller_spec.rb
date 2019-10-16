@@ -39,6 +39,7 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(returned_json['locations'][0]['name']).to eq('Nero')
       expect(returned_json['locations'][1]['name']).to eq('Cafe')
       expect(returned_json['locations'][1]['password_protected']).to eq(true)
+      expect(returned_json['locations']).to all(include('average_rating'))
     end
   end
 end

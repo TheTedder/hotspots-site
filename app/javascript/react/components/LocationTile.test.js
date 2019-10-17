@@ -3,7 +3,6 @@ import Enzyme, { mount } from "enzyme"
 import { act } from "react-dom/test-utils"
 import Adapter from "enzyme-adapter-react-16"
 Enzyme.configure({ adapter: new Adapter() })
-import { BrowserRouter } from "react-router-dom"
 
 import LocationTile from "./LocationTile"
 
@@ -12,7 +11,6 @@ describe("LocationTile", () => {
 
   beforeEach(() => {
     wrapper = mount(
-      <BrowserRouter>
         <LocationTile
           key="3"
           id="3"
@@ -21,7 +19,6 @@ describe("LocationTile", () => {
           state="MA"
           passwordProtected={true}
           />
-      </BrowserRouter>
     )
   })
 

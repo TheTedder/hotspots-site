@@ -1,12 +1,8 @@
 import React from 'react';
 
 const LocationTile = props => {
-  let protect
-  if (props.passwordProtected === true) {
-    protect = "true"
-  } else {
-    protect = "false"
-  }
+  let protect = props.passwordProtected === null ? "Unknown" : props.passwordProtected.toString()
+
   return(
     <div className="location-tile">
         <h3>{props.name}</h3>

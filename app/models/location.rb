@@ -19,4 +19,8 @@ class Location < ApplicationRecord
       return sum.fdiv(reviews.length)
     end
   end
+
+  def address2
+    "#{city}, #{state} #{zip}"
+  end
 end

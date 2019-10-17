@@ -7,7 +7,7 @@ export const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/locations/:id" component={LocationShowPage}/>
+        <Route exact path="/locations/:id" component={LocationShowPage}/>
       </Switch>
     </BrowserRouter>
   )

@@ -1,18 +1,17 @@
 import React from 'react'
 
 const LocationShowTile = props => {
-  let locationData = props.locationData
   return (
     <div>
-      <h2>Name: {locationData.name}</h2>
-      <h3>Rating: {locationData.rating}</h3>
+      <h2>Name: {props.name}</h2>
+      <h3>Rating: {props.rating}</h3>
       <br/>
       <h4>Address: </h4>
-      <p>{locationData.address}</p>
-      <p>{locationData.address2}</p>
+      <p>{props.address}</p>
+      <p>{props.address2}</p>
       <br/>
-      <p>Price: {locationData.price}</p>
-      <p>Password Protected: {locationData.password_protected}</p>
+      <p>Price: {props.price}</p>
+      <p>Password Protected: {props.password_protected}</p>
     </div>
   )
 }

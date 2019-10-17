@@ -10,4 +10,17 @@ class Location < ApplicationRecord
   validates :zip, numericality: { only_integer: true }, presence: true
 
   has_many :reviews
+
+  def average_rating
+    if reviews.empty?
+      return nil
+    else
+      sum = reviews.sum { |review| review.rating }
+      return sum.fdiv(reviews.length)
+    end
+  end
+
+  def address2
+    "#{city}, #{state} #{zip}"
+  end
 end

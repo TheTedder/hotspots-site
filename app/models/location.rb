@@ -4,7 +4,7 @@ class Location < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :city, presence: true
-  validates :state, presence: true
+  validates :state, inclusion: { in: Country['US'].states.keys }
   validates :price, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: true
   validates :password_protected, inclusion: { in: [true, false] }, allow_nil: true
   validates :zip, numericality: { only_integer: true }, presence: true

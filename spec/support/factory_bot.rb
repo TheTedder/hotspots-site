@@ -9,4 +9,13 @@ FactoryBot.define do
     password_confirmation { 'password' }
   end
 
+  factory :location do
+    user
+    name { Faker::Games::SuperSmashBros.stage }
+    address { Faker::Address.street_address }
+    city { Faker::Address.city }
+    zip_state = Faker::Address.state
+    state { zip_state }
+    zip { Faker::Address.zip_code(state_abbreviation: zip_state) }
+  end
 end

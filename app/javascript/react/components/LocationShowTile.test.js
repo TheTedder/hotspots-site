@@ -14,7 +14,7 @@ describe('<LocationShowTile />', () => {
         address2="Boston, MA 01234"
         rating={5}
         price="$12"
-        password_protected="yes"
+        passwordProtected="yes"
       />
     )
   })

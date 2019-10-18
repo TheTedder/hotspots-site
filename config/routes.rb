@@ -9,4 +9,6 @@ Rails.application.routes.draw do
       resources :locations, only: [ :index, :show ]
     end
   end
+
+  get '/locations/:id', to: 'homes#index'
 end

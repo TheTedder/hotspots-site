@@ -57,7 +57,7 @@ const LocationShowPage = props => {
       address={locationData.address}
       address2={locationData.address2}
       price={locationData.price}
-      password_protected={locationData.password_protected}
+      passwordProtected={locationData.password_protected}
     />
   )
 }

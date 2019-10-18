@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 import LocationShowTile from './LocationShowTile'
+import ReviewsContainer from './ReviewsContainer'
 
 const LocationShowPage = props => {
   let [locationData, setLocation] = useState(
@@ -54,14 +55,19 @@ const LocationShowPage = props => {
   }, [])
 
   return (
-    <LocationShowTile
-      name={locationData.name}
-      rating={locationData.rating}
-      address={locationData.address}
-      address2={locationData.address2}
-      price={locationData.price}
-      password_protected={locationData.password_protected}
-    />
+    <div className="show-wrapper">
+      <LocationShowTile
+        name={locationData.name}
+        rating={locationData.rating}
+        address={locationData.address}
+        address2={locationData.address2}
+        price={locationData.price}
+        password_protected={locationData.password_protected}
+      />
+      <ReviewsContainer
+        reviews={reviews}
+      />
+  </div>
   )
 }
 

@@ -86,6 +86,8 @@ GEM
     execjs (2.7.0)
     factory_bot (5.1.1)
       activesupport (>= 4.2.0)
+    faker (2.6.0)
+      i18n (>= 1.6, < 1.8)
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
     foundation-rails (6.5.3.0)
@@ -254,6 +256,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot
+  faker
   foundation-rails (~> 6.5)
   jbuilder (~> 2.5)
   jquery-rails

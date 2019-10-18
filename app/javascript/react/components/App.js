@@ -8,6 +8,7 @@ export const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/" component={LocationsIndexContainer}/>
         <Route exact path="/locations" component={LocationsIndexContainer}/>
         <Route exact path="/locations/new" component={LocationsFormContainer}/>
       </Switch>

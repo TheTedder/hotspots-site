@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect('/locations')
+  root 'homes#index'
   get '/locations', to: 'homes#index'
   get '/locations/new', to: 'homes#index'
   devise_for :users

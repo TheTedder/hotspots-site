@@ -18,7 +18,7 @@ const LocationsIndexContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      setLocations(body)
+      setLocations(body.locations)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])

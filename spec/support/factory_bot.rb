@@ -14,7 +14,7 @@ FactoryBot.define do
     name { Faker::Games::SuperSmashBros.stage }
     address { Faker::Address.street_address }
     city { Faker::Address.city }
-    zip_state = Faker::Address.state
+    zip_state = Faker::Address.state_abbr
     state { zip_state }
     zip { Faker::Address.zip_code(state_abbreviation: zip_state) }
   end

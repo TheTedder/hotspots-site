@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { UsaStates } from 'usa-states'
 
 const LocationsFormContainer = props => {
   const [newLocation, setNewLocation] = useState({
@@ -18,6 +19,14 @@ const LocationsFormContainer = props => {
     })
   }
 
+  const states = (new UsaStates()).states.map( (state, index) => {
+    return (
+      <option key={index} value={state.abbreviation}>
+        {state.abbreviation}
+      </option>
+    )
+  })
+
   return(
     <div id="new-form">
       <h1>Add a new Hotspot!</h1>
@@ -36,7 +45,10 @@ const LocationsFormContainer = props => {
         </label>
         <label htmlFor="state">
           State:
-          <input type="text" id="state" name="state" value={newLocation.state} onChange={handleChange}/>
+          <select id="state" name="state" value={newLocation.state} onChange={handleChange}>
+            <option value=""></option>
+            {states}
+          </select>
         </label>
         <label htmlFor="zip">
           Zip Code:

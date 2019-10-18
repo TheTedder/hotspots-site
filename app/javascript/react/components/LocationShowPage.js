@@ -15,6 +15,8 @@ const LocationShowPage = props => {
     }
   )
 
+  let [reviews, setReviews] = useState([])
+
   useEffect(() => {
     fetch(`/api/v1/locations/${props.match.params.id}`)
     .then(response => {
@@ -47,6 +49,7 @@ const LocationShowPage = props => {
         newLocation.password_protected = password_protected_options[json.location.password_protected]
       }
       setLocation(newLocation)
+      setReviews(json.location.reviews)
     })
   }, [])
 

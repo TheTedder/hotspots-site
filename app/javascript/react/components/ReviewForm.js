@@ -15,16 +15,21 @@ const ReviewForm = (props) => {
     })
   }
 
+  const onSubmitHandler = (event) => {
+    event.preventDefault()
+    props.onReviewSubmitted(newReview)
+  }
+
   return(
     <div className="callout primary" id="new-form">
       <h1>Add a new review!</h1>
-      <form>
+      <form onSubmit={onSubmitHandler}>
 
         <label htmlFor="rating">
           Rating:
         </label>
-        <select id="rating" name="rating"
-          value={newReview.rating} onChange={handleChange}>
+        <select id="rating" name="rating" value={newReview.rating} onChange={handleChange}>
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -38,7 +43,8 @@ const ReviewForm = (props) => {
         <textarea
           name="body"
           id="body"
-          value={newReview.body} onChange={handleChange}
+          value={newReview.body}
+          onChange={handleChange}
         />
 
         <label htmlFor="speed_data">
@@ -50,7 +56,8 @@ const ReviewForm = (props) => {
           step={0.1}
           name="speed_data"
           id="speed_data"
-          value={newReview.speed_data} onChange={handleChange}
+          value={newReview.speed_data}
+          onChange={handleChange}
         />
 
         <input type="submit" value="Submit" />

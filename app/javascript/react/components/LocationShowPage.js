@@ -60,7 +60,7 @@ const LocationShowPage = props => {
         address2={locationData.address2}
         price={locationData.price}
         passwordProtected={locationData.password_protected}
-        />
+      />
       <ReviewForm />
     </div>
   )

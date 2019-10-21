@@ -56,3 +56,5 @@ gem 'webpacker', '~> 3.3'
 gem 'active_model_serializers'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'faker'
+
+gem "font-awesome-rails", "~> 4.7"

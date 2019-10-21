@@ -16,11 +16,16 @@ const ReviewTile = props => {
     )
   }
   return (
-    <div className="review-tile row">
-      <div className="row rating">
-        Rating: {stars}
+    <div className="cell review-tile card">
+      <div className="rating card-divider">
+        <p>
+          Rating:
+          <div className="rating-stars">
+            {stars}
+          </div>
+        </p>
       </div>
-      <div className="review-tile-body row">
+      <div className="card-section review-body">
         {props.body}
       </div>
     </div>

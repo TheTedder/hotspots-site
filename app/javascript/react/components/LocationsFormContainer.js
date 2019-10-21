@@ -25,7 +25,7 @@ const LocationsFormContainer = props => {
       
         <label htmlFor="name">
           Location Name:
-        <input type="text" id="name" name="name" value={newLocation.name} onChange={handleChange}/>
+          <input type="text" id="name" name="name" value={newLocation.name} onChange={handleChange}/>
         </label>
 
         <label htmlFor="address">

@@ -5,7 +5,7 @@ import LocationShowTile from './LocationShowTile'
 import ReviewForm from './ReviewForm'
 
 const LocationShowPage = props => {
-  let [locationData, setLocation] = useState(
+  const [locationData, setLocation] = useState(
     {
       name: "",
       address: "",
@@ -51,6 +51,28 @@ const LocationShowPage = props => {
     })
   }, [])
 
+  const onReviewSubmitted = (review) => {
+    debugger
+    fetch(`/api/v1/locations/${props.match.params.id}/reviews`, {
+      method: 'POST',
+      body: JSON.stringify(review)
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(reviewBody => {
+      debugger
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
+
   return (
     <div>
       <LocationShowTile
@@ -61,7 +83,9 @@ const LocationShowPage = props => {
         price={locationData.price}
         passwordProtected={locationData.password_protected}
         />
-      <ReviewForm />
+      <ReviewForm
+        onReviewSubmitted={onReviewSubmitted}
+      />
     </div>
   )
 }

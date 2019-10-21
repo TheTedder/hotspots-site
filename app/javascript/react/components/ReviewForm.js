@@ -15,16 +15,24 @@ const ReviewForm = (props) => {
     })
   }
 
+  const onSubmitHandler = (event) => {
+    event.preventDefault()
+    if (newReview["rating"] !== 0) {
+      props.onReviewSubmitted(newReview)
+    }
+  }
+
   return(
     <div className="callout primary" id="new-form">
       <h1>Add a new review!</h1>
-      <form>
+      <form onSubmit={onSubmitHandler}>
 
         <label htmlFor="rating">
           Rating:
         </label>
         <select id="rating" name="rating"
           value={newReview.rating} onChange={handleChange}>
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

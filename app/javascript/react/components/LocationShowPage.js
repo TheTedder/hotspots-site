@@ -51,11 +51,11 @@ const LocationShowPage = props => {
     })
   }, [])
 
-  const onReviewSubmitted = (review) => {
+  const onReviewSubmitted = (newReview) => {
     debugger
     fetch(`/api/v1/locations/${props.match.params.id}/reviews`, {
       method: 'POST',
-      body: JSON.stringify(review)
+      body: JSON.stringify({review:newReview})
     })
     .then(response => {
       if (response.ok) {

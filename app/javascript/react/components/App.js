@@ -5,7 +5,6 @@ import LocationsFormContainer from './LocationsFormContainer'
 import LocationsIndexContainer from './LocationsIndexContainer'
 import LocationShowPage from './LocationShowPage'
 
-
 export const App = (props) => {
   return (
     <BrowserRouter>

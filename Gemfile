@@ -55,8 +55,5 @@ gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 gem 'active_model_serializers'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-<<<<<<< HEAD
 gem 'countries'
-=======
 gem 'faker'
->>>>>>> c5747f215029ae63d78db21ddb6d58765fd57448

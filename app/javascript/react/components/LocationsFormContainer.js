@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-<<<<<<< HEAD
 import { UsaStates } from 'usa-states'
-=======
->>>>>>> c5747f215029ae63d78db21ddb6d58765fd57448
 
 const LocationsFormContainer = props => {
   const [newLocation, setNewLocation] = useState({
@@ -34,7 +31,7 @@ const LocationsFormContainer = props => {
     <div id="new-form">
       <h1>Add a new Hotspot!</h1>
       <form className="callout">
-      
+
         <label htmlFor="name">
           Location Name:
         <input type="text" id="name" name="name" value={newLocation.name} onChange={handleChange}/>

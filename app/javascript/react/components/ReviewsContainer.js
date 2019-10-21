@@ -1,8 +1,10 @@
 import React from 'react'
 
+import ReviewTile from './ReviewTile'
+
 const ReviewsContainer = props => {
-  let reviews = props.reviews.map( review => {
-    return (
+  let reviewTiles = props.reviews.map( review =>
+    (
       <ReviewTile
         key={review.id}
         id={review.id}
@@ -12,10 +14,12 @@ const ReviewsContainer = props => {
         speedData={review.speed_data}
       />
     )
-  })
+  )
 
   return (
-    {reviews}
+    <div className="review-container row">
+      {reviewTiles}
+    </div>
   )
 }
 

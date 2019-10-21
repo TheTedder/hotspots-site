@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 import LocationShowTile from './LocationShowTile'
+import ReviewForm from './ReviewForm'
 import ReviewsContainer from './ReviewsContainer'
 
 const LocationShowPage = props => {
@@ -64,10 +65,11 @@ const LocationShowPage = props => {
         price={locationData.price}
         passwordProtected={locationData.password_protected}
       />
+      <ReviewForm />
       <ReviewsContainer
         reviews={reviews}
       />
-  </div>
+    </div>
   )
 }
 

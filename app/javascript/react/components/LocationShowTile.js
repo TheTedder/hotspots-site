@@ -11,7 +11,7 @@ const LocationShowTile = props => {
       <p id="show-address2">{props.address2}</p>
       <br/>
       <p id="show-price">Price: {props.price}</p>
-      <p id="show-password-protect">Password Protected: {props.password_protected}</p>
+      <p id="show-password-protect">Password Protected: {props.passwordProtected}</p>
     </div>
   )
 }

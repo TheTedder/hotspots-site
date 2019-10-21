@@ -15,14 +15,23 @@ const ReviewTile = props => {
       <i className={starClass} key={i}></i>
     )
   }
+
+  let speed
+  if (props.speedData !== '' && props.speedData !== null){
+    speed = `Speed: ${props.speedData} kb/s`
+  }
+
   return (
     <div className="cell review-tile card">
-      <div className="rating card-divider">
-        <p>
+      <div className="header card-divider grid-x">
+        <p className="rating cell small-6 float-left">
           Rating:
-          <div className="rating-stars">
+          <span className="rating-stars">
             {stars}
-          </div>
+          </span>
+        </p>
+        <p className="speed-data-result cell small-6 text-right">
+          {speed}
         </p>
       </div>
       <div className="card-section review-body">

@@ -14,7 +14,7 @@ i.fa.fa-star {
   margin: 0.1rem;
 }
 
-div.rating-stars {
+span.rating-stars {
   border-radius: 4px;
   background-color: #66a3cc;
   display: inline;
@@ -23,12 +23,15 @@ div.rating-stars {
 }
 
 div.review-tile {
-  font-size: 1.5rem;
-}
+  div.header {
+    p.rating {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
 
-div.rating {
-  p{
-    line-height: 2rem;
+    p.speed-data-result {
+      font-size: 1.2rem;
+    }
   }
 }
 

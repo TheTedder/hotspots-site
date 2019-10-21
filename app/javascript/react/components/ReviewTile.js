@@ -24,12 +24,12 @@ const ReviewTile = props => {
   return (
     <div className="cell review-tile card">
       <div className="header card-divider grid-x">
-        <p className="rating cell small-6 float-left">
+        <div className="rating cell small-6 float-left">
           Rating:
-          <span className="rating-stars">
+          <div className="rating-stars">
             {stars}
-          </span>
-        </p>
+          </div>
+        </div>
         <p className="speed-data-result cell small-6 text-right">
           {speed}
         </p>

@@ -55,7 +55,13 @@ const LocationShowPage = props => {
     debugger
     fetch(`/api/v1/locations/${props.match.params.id}/reviews`, {
       method: 'POST',
-      body: JSON.stringify({review:newReview})
+      credentials: "same-origin",
+      header: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: JSON.stringify(newReview)
     })
     .then(response => {
       if (response.ok) {

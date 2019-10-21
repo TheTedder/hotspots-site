@@ -16,7 +16,10 @@ const ReviewForm = (props) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    props.onReviewSubmitted(newReview)
+    let payload = {
+      review: newReview
+    }
+    props.onReviewSubmitted(payload)
   }
 
   return(

@@ -10,8 +10,7 @@ const ReviewForm = (props) => {
   const handleChange = event => {
     setNewReview({
       ...newReview,
-      [event.currentTarget.name]:
-      event.currentTarget.value
+      [event.currentTarget.name]: event.currentTarget.value
     })
   }
 

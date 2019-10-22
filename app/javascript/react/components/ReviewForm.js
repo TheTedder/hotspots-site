@@ -14,12 +14,20 @@ const ReviewForm = (props) => {
     })
   }
 
+  const clearForm = () => {
+    setNewReview({
+      rating: 0,
+      body: "",
+      speed_data: 0
+    })
+  }
+
   const onSubmitHandler = (event) => {
     event.preventDefault()
     let payload = {
       review: newReview
     }
-    props.onReviewSubmitted(payload)
+    props.onReviewSubmitted(payload, clearForm)
   }
 
   return(

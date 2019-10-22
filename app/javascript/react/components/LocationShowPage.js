@@ -56,7 +56,7 @@ const LocationShowPage = props => {
     })
   }, [])
 
-  const onReviewSubmitted = (newReview) => {
+  const onReviewSubmitted = (newReview, formClear) => {
     let token = document.getElementsByName("csrf-token")[0].content
     let fixedToken = encodeURIComponent(token)
     fetch(`/api/v1/locations/${props.match.params.id}/reviews?authenticity_token=${fixedToken}`, {
@@ -80,6 +80,7 @@ const LocationShowPage = props => {
     .then(response => response.json())
     .then(reviewBody => {
       if (reviewBody.review.error_messages.length === 0) {
+        formClear()
         setReviews([...reviews, reviewBody.review])
       } else {
         setErrorList(reviewBody.review.error_messages)

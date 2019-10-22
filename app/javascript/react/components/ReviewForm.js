@@ -43,7 +43,7 @@ const ReviewForm = (props) => {
 
   return(
     <div className="callout primary" id="new-form">
-      <h1>Add a new review!</h1>
+      <h2>Add a new review!</h2>
       <form onSubmit={onSubmitHandler}>
         {stars}
         <label htmlFor="body">

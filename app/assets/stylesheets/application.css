@@ -42,5 +42,16 @@ div.location-header {
 
 div.card-section.body {
   color: red;
-  grid-column-start: 7;
+
 }
+
+/* #info {
+  padding-left: 40%;
+  display: inline-block;
+}
+
+#store-image {
+  padding-top: 0;
+  margin-top: none;
+  float: none;
+} */

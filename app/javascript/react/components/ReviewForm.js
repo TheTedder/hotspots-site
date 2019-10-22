@@ -42,9 +42,8 @@ const ReviewForm = (props) => {
   }
 
   return(
-<<<<<<< HEAD
     <div className="callout primary" id="new-form">
-      <h2>Add a new review!</h2>
+      <h3>Add a new review!</h3>
       <form onSubmit={onSubmitHandler}>
         {stars}
         <label htmlFor="body">
@@ -56,42 +55,6 @@ const ReviewForm = (props) => {
           value={newReview.body}
           onChange={handleChange}
         />
-=======
-    <div className="callout primary" id="new-form" >
-        <h3 id="review-form-header">Add a new review!</h3>
-        <form onSubmit={onSubmitHandler}>
-
-      <div className="grid-x grid-padding-x row">
-        <div className="small-4 cell" id="review-form-rating">
-          <label htmlFor="rating">
-            Rating:
-          </label>
-          <select id="rating" name="rating" value={newReview.rating} onChange={handleChange}>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-
-        <div className="small-4 cell" id="speed-data-block">
-          <label htmlFor="speed_data">
-            Speed Data(optional):
-          </label>
-          <input
-            type="number"
-            min={0}
-            step={0.1}
-            name="speed_data"
-            id="speed_data"
-            value={newReview.speed_data}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
->>>>>>> 13f352b5cb36fb4fc19f130728b99f2abb7a79d7
 
       <div className="row">
         <div className="large-12 cell">

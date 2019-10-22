@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 import LocationShowTile from './LocationShowTile'
 import ReviewForm from './ReviewForm'
+import ReviewsContainer from './ReviewsContainer'
 
 const LocationShowPage = props => {
   const [errorList, setErrorList] = useState([])
@@ -16,6 +17,8 @@ const LocationShowPage = props => {
       price: null
     }
   )
+
+  let [reviews, setReviews] = useState([])
 
   useEffect(() => {
     fetch(`/api/v1/locations/${props.match.params.id}`)
@@ -49,6 +52,7 @@ const LocationShowPage = props => {
         newLocation.password_protected = password_protected_options[json.location.password_protected]
       }
       setLocation(newLocation)
+      setReviews(json.location.reviews)
     })
   }, [])
 
@@ -79,7 +83,7 @@ const LocationShowPage = props => {
     }
 
   return (
-    <div>
+    <div className="show-wrapper">
       <LocationShowTile
         name={locationData.name}
         rating={locationData.rating}
@@ -91,6 +95,9 @@ const LocationShowPage = props => {
       {errorList.join(" and ")}
       <ReviewForm
         onReviewSubmitted={onReviewSubmitted}
+      />
+      <ReviewsContainer
+        reviews={reviews}
       />
     </div>
   )

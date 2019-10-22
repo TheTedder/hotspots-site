@@ -1,0 +1,46 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+ *= require font-awesome
+
+ */
+
+.grid-container {
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+}
+
+
+#review-form-header {
+  font-style: bold;
+  margin-bottom: 1rem;
+}
+
+#review-form-rating {
+  padding-left: 0rem;
+}
+
+#speed-data-block {
+  padding-left: 2.5rem;
+}
+
+div.location-header {
+  background-color: lightblue;
+}
+
+div.card-section.body {
+  color: red;
+  grid-column-start: 7;
+}

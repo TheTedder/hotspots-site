@@ -7,6 +7,28 @@ const ReviewForm = (props) => {
     speed_data: 0
   })
 
+  const handleStarClick = event => {
+    setNewReview({
+      ...newReview,
+      rating: event.currentTarget.title
+    })
+  }
+
+  let stars = []
+
+  for (let i = 0; i < 5; i++){
+    let starClass = 'fa fa-star '
+    if (i < Number.parseInt(newReview.rating)){
+      starClass += 'gold-star'
+    } else{
+      starClass += 'grey-star'
+    }
+
+    stars.push(
+      <i className={starClass} key={i} onClick={handleStarClick} title={i+1}></i>
+    )
+  }
+
   const handleChange = event => {
     setNewReview({
       ...newReview,
@@ -23,19 +45,7 @@ const ReviewForm = (props) => {
     <div className="callout primary" id="new-form">
       <h1>Add a new review!</h1>
       <form onSubmit={onSubmitHandler}>
-
-        <label htmlFor="rating">
-          Rating:
-        </label>
-        <select id="rating" name="rating" value={newReview.rating} onChange={handleChange}>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-
+        {stars}
         <label htmlFor="body">
           Description:
         </label>

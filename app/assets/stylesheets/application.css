@@ -22,10 +22,6 @@
   grid-template-rows: 25% 100px auto;
 }
 
-#new-form {
-  // height: 18rem;
-  // width: 40rem;
-}
 
 #review-form-header {
   font-style: bold;
@@ -38,4 +34,13 @@
 
 #speed-data-block {
   padding-left: 2.5rem;
+}
+
+div.location-header {
+  background-color: lightblue;
+}
+
+div.card-section.body {
+  color: red;
+  grid-column-start: 7;
 }

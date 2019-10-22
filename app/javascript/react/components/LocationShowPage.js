@@ -7,6 +7,7 @@ import ReviewsContainer from './ReviewsContainer'
 
 const LocationShowPage = props => {
   const [errorList, setErrorList] = useState([])
+  const [reviews, setReviews] = useState([])
   const [locationData, setLocation] = useState(
     {
       name: "",
@@ -18,7 +19,6 @@ const LocationShowPage = props => {
     }
   )
 
-  let [reviews, setReviews] = useState([])
 
   useEffect(() => {
     fetch(`/api/v1/locations/${props.match.params.id}`)
@@ -57,7 +57,9 @@ const LocationShowPage = props => {
   }, [])
 
   const onReviewSubmitted = (newReview) => {
-    fetch(`/api/v1/locations/${props.match.params.id}/reviews?authenticity_token=${document.getElementsByName("csrf-token")[0].content}`, {
+    let token = document.getElementsByName("csrf-token")[0].content
+    let fixedToken = encodeURIComponent(token)
+    fetch(`/api/v1/locations/${props.match.params.id}/reviews?authenticity_token=${fixedToken}`, {
       method: 'POST',
       credentials: "same-origin",
       header: {
@@ -77,7 +79,11 @@ const LocationShowPage = props => {
     })
     .then(response => response.json())
     .then(reviewBody => {
-      setErrorList(reviewBody.review.error_messages)
+      if (reviewBody.review.error_messages.length === 0) {
+        setReviews([...reviews, reviewBody.review])
+      } else {
+        setErrorList(reviewBody.review.error_messages)
+      }
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
     }

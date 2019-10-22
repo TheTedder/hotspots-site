@@ -29,6 +29,9 @@ describe("ReviewTile", () => {
 
     it("renders a gold star for each rating point", () => {
       expect(wrapper.find('i.fa.fa-star.gold-star').length).toEqual(5)
+    })
+
+    it("does not render any grey stars for a 5 star rating", () => {
       expect(wrapper.find('i.fa.fa-star.grey-star').exists()).toEqual(false)
     })
 

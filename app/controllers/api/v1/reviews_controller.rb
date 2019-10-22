@@ -1,20 +1,16 @@
 require 'JSON'
 class Api::V1::ReviewsController < ApiController
-  protect_from_forgery unless: -> { request.format.json? }
-  # skip_before_action :verify_authenticity_token
-  #protect_from_forgery with: :null_session
-
-
 
   def create
-    binding.pry
+    # authenticity token creates spaces on "+", so sometimes it wont correctly read that a user has signed in.
     location = Location.find(params["location_id"])
-    newRev = Review.new(JSON.parse(request.body.read)["review"])
-    render json: {message: "foobar"}
+    new_review = Review.new(JSON.parse(request.body.read)["review"].merge(user: current_user, location: location))
+    new_review.save
+    render json: new_review
   end
 
   private
-  def review_params
-    params.require(:review).permit(:rating, :body, :speed_data)
+  def review_params(review)
+
   end
 end

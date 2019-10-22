@@ -5,6 +5,7 @@ import LocationShowTile from './LocationShowTile'
 import ReviewForm from './ReviewForm'
 
 const LocationShowPage = props => {
+  const [errorList, setErrorList] = useState([])
   const [locationData, setLocation] = useState(
     {
       name: "",
@@ -52,14 +53,12 @@ const LocationShowPage = props => {
   }, [])
 
   const onReviewSubmitted = (newReview) => {
-    debugger
-    fetch(`/api/v1/locations/${props.match.params.id}/reviews`, {
+    fetch(`/api/v1/locations/${props.match.params.id}/reviews?authenticity_token=${document.getElementsByName("csrf-token")[0].content}`, {
       method: 'POST',
       credentials: "same-origin",
       header: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
+          'Content-Type': 'application/json'
       },
       body: JSON.stringify(newReview)
     })
@@ -74,7 +73,7 @@ const LocationShowPage = props => {
     })
     .then(response => response.json())
     .then(reviewBody => {
-      debugger
+      setErrorList(reviewBody.review.error_messages)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
     }
@@ -89,6 +88,7 @@ const LocationShowPage = props => {
         price={locationData.price}
         passwordProtected={locationData.password_protected}
         />
+      {errorList.join(" and ")}
       <ReviewForm
         onReviewSubmitted={onReviewSubmitted}
       />

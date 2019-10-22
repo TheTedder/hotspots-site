@@ -1,0 +1,40 @@
+@import 'foundation';
+@import 'util/color';
+@include add-foundation-colors;
+
+i.gold-star {
+  color: gold;
+}
+
+i.grey-star {
+  color: grey;
+}
+
+i.fa.fa-star {
+  margin: 0.2rem;
+}
+
+div.review-tile {
+  div.header {
+    div.rating {
+      font-size: 1.5rem;
+      line-height: 2rem;
+
+      div.rating-stars {
+        border-radius: 2rem;
+        background-color: #66a3cc;
+        display: inline;
+        padding: 0.3rem 1rem;
+        margin: 0.2rem;
+      }
+    }
+
+    p.speed-data-result {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+div.review-body {
+  font-size: 1.2rem;
+}

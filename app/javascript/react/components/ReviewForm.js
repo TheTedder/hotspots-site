@@ -4,7 +4,7 @@ const ReviewForm = (props) => {
   const [newReview, setNewReview] = useState({
     rating: 0,
     body: "",
-    speed_data: 0
+    speed_data: ""
   })
 
   const handleStarClick = event => {
@@ -36,9 +36,20 @@ const ReviewForm = (props) => {
     })
   }
 
+  const clearForm = () => {
+    setNewReview({
+      rating: 0,
+      body: "",
+      speed_data: ""
+    })
+  }
+
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    props.onReviewSubmitted(newReview)
+    let payload = {
+      'review': newReview
+    }
+    props.onReviewSubmitted(payload, clearForm)
   }
 
   return(

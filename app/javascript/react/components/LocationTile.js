@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LocationTile = props => {
   let lockIcon
@@ -18,8 +19,8 @@ const LocationTile = props => {
             <img src="https://signarama-toronto.ca/wp-content/uploads/2018/07/Minotti-1.jpg"></img>
           </div>
           <div className="cell small-10 large-8">
-            <h3>{props.name}</h3>
-            <p>{props.city}, {props.state}</p>
+            <h3><Link to={`/locations/${props.id}`}>{props.name}</Link></h3>
+            <p className="location-index-citystate">{props.city}, {props.state}</p>
             <p>{lockIcon}</p>
           </div>
         </div>

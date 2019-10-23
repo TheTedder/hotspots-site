@@ -4,7 +4,7 @@ const LocationShowTile = props => {
   let passwordProtectedBadge
   if (props.passwordProtected === 'yes'){
     passwordProtectedBadge = (
-      <div className="location-password-protected">
+      <div className="location-show-password-protected">
         <p>
           <span className="alert label">
             Password Required
@@ -17,20 +17,20 @@ const LocationShowTile = props => {
   return (
     <div>
       <div className="location-tile primary card cell" style={{width: '100%'}}>
-        <div className="card-divider small-centered text-center location-header">
+        <div className="card-divider small-centered text-center location-show-header">
           <h2>{props.name}</h2>
         </div>
         <div className="card-section grid-x grid-padding-x">
-          <div className="location-info cell small-12 medium-6">
-            <div className="location-address">
+          <div className="location-show-info cell small-12 medium-6">
+            <div className="location-show-address">
               <p>{props.address}</p>
               <p>{props.address2}</p>
             </div>
-            <div className="location-rating">
+            <div className="location-show-rating">
               <p>Overall Rating: {props.rating} (replace w/ stars pls)</p>
             </div>
             {passwordProtectedBadge}
-            <div className="location-price">
+            <div className="location-show-price">
               <p>Price: {props.price}</p>
             </div>
           </div>

@@ -18,7 +18,7 @@ const ReviewForm = (props) => {
     setNewReview({
       rating: 0,
       body: "",
-      speed_data: 0
+      speed_data: ""
     })
   }
 

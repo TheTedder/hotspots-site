@@ -76,11 +76,12 @@ const LocationShowPage = props => {
     })
     .then(response => response.json())
     .then(reviewBody => {
-      if (reviewBody.review.error_messages.length === 0) {
+      if (reviewBody.review){
         formClear()
+        setErrorList([])
         setReviews([...reviews, reviewBody.review])
       } else {
-        setErrorList(reviewBody.review.error_messages)
+        setErrorList(reviewBody.errors)
       }
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))

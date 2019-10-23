@@ -16,8 +16,8 @@ const LocationShowTile = props => {
 
   return (
     <div>
-      <div className="location-tile primary card grid-x cell" style={{width: '100%'}}>
-        <div className="card-divider cell small-6 small-centered text-center location-header">
+      <div className="location-tile primary card cell" style={{width: '100%'}}>
+        <div className="card-divider small-centered text-center location-header">
           <h2>{props.name}</h2>
         </div>
         <div className="card-section grid-x grid-padding-x">

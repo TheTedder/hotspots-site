@@ -4,7 +4,7 @@ const ReviewForm = (props) => {
   const [newReview, setNewReview] = useState({
     rating: 0,
     body: "",
-    speed_data: 0
+    speed_data: ""
   })
 
   const handleChange = event => {
@@ -62,7 +62,6 @@ const ReviewForm = (props) => {
         </label>
         <input
           type="number"
-          min={0}
           step={0.1}
           name="speed_data"
           id="speed_data"

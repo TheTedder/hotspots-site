@@ -11,21 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require foundation_and_overrides
- *= require font-awesome
-
+ *= require_self
  */
-
-.grid-container {
-  grid-template-columns: 40px 50px auto 50px 40px;
-  grid-template-rows: 25% 100px auto;
-}
-
-#review-form-header {
-  font-style: bold;
-  margin-bottom: 1rem;
-}
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 #review-form-rating {
   padding-left: 0rem;
@@ -35,30 +24,32 @@
   padding-left: 2.5rem;
 }
 
-.grid-container {
-  grid-template-columns: 40px 50px auto 50px 40px;
-  grid-template-rows: 25% 100px auto;
-}
-
-
 #review-form-header {
   font-style: bold;
   margin-bottom: 1rem;
-}
-
-#review-form-rating {
-  padding-left: 0rem;
-}
-
-#speed-data-block {
-  padding-left: 2.5rem;
-}
-
-div.card-section.body {
-  color: red;
 }
 
 nav.top-bar {
   background-color: #2c3169;
   border-bottom: 3px ridge #4b5582;
+  li {
+    background-color: #2c3169;
+    a.button {
+      color: white;
+      border-color: white;
+    }
+  }
+}
+
+h1 {
+  a {
+    color: white;
+    #wifi-icon{
+      color: red;
+      font-size: 2.0rem;
+    }
+  }
+  font-size: 2.5rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
 }

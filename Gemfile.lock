@@ -73,7 +73,7 @@ GEM
       i18n_data (~> 0.8.0)
       sixarm_ruby_unaccent (~> 1.1)
       unicode_utils (~> 1.4)
-    crass (1.0.4)
+    crass (1.0.5)
     database_cleaner (1.7.0)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -93,9 +93,6 @@ GEM
     faker (2.6.0)
       i18n (>= 1.6, < 1.8)
     ffi (1.11.1)
-    ffi (1.11.1-x64-mingw32)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     foundation-rails (6.5.3.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
@@ -118,7 +115,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.3.0)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -133,11 +130,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.4-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
-    pg (1.1.4-x64-mingw32)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -230,8 +224,6 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2019.3)
-      tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode_utils (1.4.0)
@@ -255,7 +247,6 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
 
 DEPENDENCIES
   active_model_serializers
@@ -266,7 +257,6 @@ DEPENDENCIES
   dotenv-rails
   factory_bot
   faker
-  font-awesome-rails (~> 4.7)
   foundation-rails (~> 6.5)
   jbuilder (~> 2.5)
   jquery-rails

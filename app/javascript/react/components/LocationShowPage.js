@@ -78,6 +78,7 @@ const LocationShowPage = props => {
     .then(reviewBody => {
       if (reviewBody.review){
         formClear()
+        setErrorList([])
         setReviews([...reviews, reviewBody.review])
       } else {
         setErrorList(reviewBody.errors)

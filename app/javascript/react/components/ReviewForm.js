@@ -4,7 +4,7 @@ const ReviewForm = (props) => {
   const [newReview, setNewReview] = useState({
     rating: 0,
     body: "",
-    speed_data: 0
+    speed_data: ""
   })
 
   const handleChange = event => {
@@ -14,9 +14,20 @@ const ReviewForm = (props) => {
     })
   }
 
+  const clearForm = () => {
+    setNewReview({
+      rating: 0,
+      body: "",
+      speed_data: ""
+    })
+  }
+
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    props.onReviewSubmitted(newReview)
+    let payload = {
+      'review': newReview
+    }
+    props.onReviewSubmitted(payload, clearForm)
   }
 
   return(
@@ -51,7 +62,6 @@ const ReviewForm = (props) => {
         </label>
         <input
           type="number"
-          min={0}
           step={0.1}
           name="speed_data"
           id="speed_data"

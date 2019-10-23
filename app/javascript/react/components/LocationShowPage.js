@@ -11,9 +11,9 @@ const LocationShowPage = props => {
       name: "",
       address: "",
       address2: "",
-      rating: null,
-      password_protected: null,
-      price: null
+      average_rating: "",
+      password_conversion: "",
+      price_conversion: ""
     }
   )
 
@@ -32,25 +32,8 @@ const LocationShowPage = props => {
       return body.json()
     })
     .then(json => {
-      let newLocation = {
-        name: json.location.name,
-        rating: json.location.rating,
-        address: json.location.address,
-        address2: json.location.address2,
-        password_protected: null,
-        price: null
-      }
-      if (json.location.price !== null && json.location.price !== ""){
-        newLocation.price = `\$${(Number.parseInt(json.location.price) /100).toFixed(2)}`
-      }
-      if (json.location.password_protected !== null && json.location.password_protected !== ""){
-        let password_protected_options = {
-          true: 'yes',
-          false: 'no'
-        }
-        newLocation.password_protected = password_protected_options[json.location.password_protected]
-      }
-      setLocation(newLocation)
+      debugger
+      setLocation(json.location)
       setReviews(json.location.reviews)
     })
   }, [])
@@ -59,11 +42,11 @@ const LocationShowPage = props => {
     <div className="show-wrapper">
       <LocationShowTile
         name={locationData.name}
-        rating={locationData.rating}
+        rating={locationData.average_rating}
         address={locationData.address}
         address2={locationData.address2}
-        price={locationData.price}
-        passwordProtected={locationData.password_protected}
+        price={locationData.price_conversion}
+        passwordProtected={locationData.password_conversion}
       />
       <ReviewForm />
       <ReviewsContainer

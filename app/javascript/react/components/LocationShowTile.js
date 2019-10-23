@@ -1,9 +1,10 @@
 import React from 'react'
 
 const LocationShowTile = props => {
+  debugger
   return (
     <div>
-      <h2 id="show-name">Name: {props.name}</h2>
+      <h2 id="show-name">{props.name}</h2>
       <h3 id="show-rating">Rating: {props.rating}</h3>
       <br/>
       <h4>Address: </h4>

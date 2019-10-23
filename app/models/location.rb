@@ -16,11 +16,27 @@ class Location < ApplicationRecord
       return nil
     else
       sum = reviews.sum { |review| review.rating }
-      return sum.fdiv(reviews.length)
+      return (sum / reviews.length).to_f
     end
   end
 
   def address2
     "#{city}, #{state} #{zip}"
+  end
+
+  def password_conversion
+    if password_protected == true
+      return "yes"
+    elsif password_protected == false
+      return "no"
+    else
+      return "Unknown"
+    end
+  end
+
+  def price_conversion
+    if price != nil && price != ""
+      return price / 100.to_f
+    end
   end
 end

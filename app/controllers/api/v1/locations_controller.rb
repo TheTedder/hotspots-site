@@ -4,6 +4,8 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def show
-    render json: Location.find(params[:id]), serializer: LocationShowSerializer
+    location = Location.find(params[:id])
+    binding.pry
+    render json: location, serializer: LocationShowSerializer
   end
 end

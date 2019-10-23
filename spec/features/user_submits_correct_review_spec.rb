@@ -7,17 +7,21 @@ feature 'user submits a review', %Q{
 } do
   scenario 'submits a correct review' do
     user = FactoryBot.create(:user)
-    location = FactoryBot.create(:location, user: user)
+    location1 = FactoryBot.create(:location, user: user)
+    location2 = FactoryBot.create(:location, user: user)
 
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
+
     click_button 'Log in'
 
-    visit locations_path
-    expect(page).to have_content("#{location.name}")
-    # expect(page).to have_current_path("/locations")
+    # visit locations_path
+    click_on("HotspotsSite")
+    expect(page).to have_current_path("/")
+    print page.html
+    expect(page).to have_content("#{location1.name}")
     # click_link("#{location.name}")
     # expect(page).to have_current_path("/locations/#{location.id}")
     # save_and_open_page

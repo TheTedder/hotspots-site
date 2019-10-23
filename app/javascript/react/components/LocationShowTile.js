@@ -1,7 +1,6 @@
 import React from 'react'
 
 const LocationShowTile = props => {
-  debugger
   return (
     <div>
       <h2 id="show-name">{props.name}</h2>

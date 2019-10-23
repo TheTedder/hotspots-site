@@ -32,7 +32,6 @@ const LocationShowPage = props => {
       return body.json()
     })
     .then(json => {
-      debugger
       setLocation(json.location)
       setReviews(json.location.reviews)
     })

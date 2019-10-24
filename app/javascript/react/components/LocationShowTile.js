@@ -27,7 +27,7 @@ const LocationShowTile = props => {
               <p>{props.address2}</p>
             </div>
             <div className="location-show-rating">
-              <p>Overall Rating: {props.rating} (replace w/ stars pls)</p>
+              <p>Overall Rating: {props.rating} </p>
             </div>
             {passwordProtectedBadge}
             <div className="location-show-price">

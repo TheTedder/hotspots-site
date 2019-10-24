@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import { UsaStates } from 'usa-states'
 
 const LocationsFormContainer = props => {
+  const [errorList, setErrorList] = useState([])
+  const [redirect, setRedirect] = useState(null)
   const [newLocation, setNewLocation] = useState({
     name: "",
     address: "",
@@ -27,10 +30,51 @@ const LocationsFormContainer = props => {
     )
   })
 
+  const onLocationSubmitted = (location) => {
+    fetch(`/api/v1/locations`, {
+      method: 'POST',
+      credentials: "same-origin",
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(location)
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(locationBody => {
+      if (locationBody.location){
+        setErrorList([])
+        setRedirect(locationBody.location.id)
+      } else {
+        setErrorList(locationBody.errors)
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
+
+  if (redirect !== null) {
+    return <Redirect to={`/locations/${redirect}`} />
+  }
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault()
+    onLocationSubmitted(newLocation)
+  }
+
   return(
     <div id="new-form">
       <h1>Add a new Hotspot!</h1>
-      <form className="callout">
+      {errorList.join(" and ")}
+      <form className="callout" onSubmit={onSubmitHandler}>
 
         <label htmlFor="name">
           Location Name:

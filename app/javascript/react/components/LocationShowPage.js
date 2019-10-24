@@ -15,7 +15,7 @@ const LocationShowPage = props => {
       address2: "",
       average_rating: "",
       password_protected: null,
-      price_conversion: ""
+      price_show: ""
     }
   )
 
@@ -76,7 +76,7 @@ const LocationShowPage = props => {
         rating={locationData.average_rating}
         address={locationData.address}
         address2={locationData.address2}
-        price={locationData.price_conversion}
+        price={locationData.price_show}
         passwordProtected={locationData.password_protected}
       />
       {errorList.join(" and ")}

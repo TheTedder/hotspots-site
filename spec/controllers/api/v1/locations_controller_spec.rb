@@ -39,4 +39,88 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(returned_json['location']['price']).to eq(location1.price)
     end
   end
+
+  describe 'POST#create' do
+    context "signed in user submits a valid location" do
+      it "should persist to the database" do
+        sign_in user1
+        test_location = {
+          location: {
+            name: "gourmet dumpling",
+            address: "22 beach st",
+            city: "Boston",
+            state: "MA",
+            zip: "02113",
+            user: user1
+          }
+        }
+
+        old_count = Location.count
+        post :create, params: test_location, format: :json
+        expect(Location.count).to eq(old_count + 1)
+      end
+
+      it "should return the new location" do
+        sign_in user1
+        test_location = {
+          location: {
+            name: "gourmet dumpling",
+            address: "22 beach st",
+            city: "Boston",
+            state: "MA",
+            zip: "02113",
+            user: user1
+          }
+        }
+
+        post :create, params: test_location, format: :json
+
+        response_body = JSON.parse(response.body)
+        expect(response.status).to eq 200
+        expect(response.content_type).to eq("application/json")
+        expect(response_body["location"]["name"]).to eq("gourmet dumpling")
+        expect(response_body["location"]["city"]).to eq("Boston")
+        expect(response_body["location"]["state"]).to eq("MA")
+        expect(response_body["location"]["zip"]).to eq(nil)
+        expect(response_body["location"]["password_protected"]).to eq(nil)
+      end
+    end
+
+    context "user submits an invalid location" do
+      it "does not persist to the database" do
+        sign_in user1
+        test_location = {
+          location: {
+            address: "22 beach st",
+            city: "Boston",
+            state: "MA",
+            zip: "02113",
+            user: user1
+          }
+        }
+
+        old_count = Location.count
+        post :create, params: test_location, format: :json
+        expect(Location.count).to eq(old_count)
+      end
+
+      it "returns an error" do
+        sign_in user1
+        test_location = {
+          location: {
+            address: "22 beach st",
+            city: "Boston",
+            state: "MA",
+            zip: "02113",
+            user: user1
+          }
+        }
+
+        post :create, params: test_location, format: :json
+
+        response_body = JSON.parse(response.body)
+        expect(response_body["errors"][0]).to eq("Name can't be blank")
+      end
+    end
+  end
 end

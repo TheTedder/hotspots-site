@@ -34,9 +34,10 @@ nav.top-bar {
   border-bottom: 3px ridge #4b5582;
   li {
     background-color: #2c3169;
-    a.button {
-      color: white;
-      border-color: white;
+    a {
+      border-style: outset;
+      border-color: #cccccc;
+      border-width: 2px;
     }
   }
 }

@@ -15,10 +15,10 @@
     <section class="top-bar-section">
       <ul class="menu">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'hollow button' %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'clear button white menu-text' %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path, class: 'hollow button' %></li>
-          <li><%= link_to 'Sign In', new_user_session_path, class: 'hollow button' %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: 'clear button white menu-text' %></li>
+          <li><%= link_to 'Sign In', new_user_session_path, class: 'clear button  white menu-text' %></li>
         <%- end -%>
       </ul>
     </section>

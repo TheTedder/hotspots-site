@@ -281,13 +281,13 @@ $breadcrumbs-item-separator-color: $medium-gray;
 
 $button-font-family: inherit;
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: 0 3px;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: none;
 $button-color: $white;
 $button-color-alt: $black;
-$button-radius: 7px;
+$button-radius: 0;
 $button-hollow-border-width: 1px;
 $button-sizes: (
   tiny: 0.6rem,
@@ -295,7 +295,9 @@ $button-sizes: (
   default: 0.9rem,
   large: 1.25rem,
 );
-$button-palette: $foundation-palette;
+$button-palette: (
+  white: #eeeeee
+);
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: 20%;
 $button-hollow-hover-lightness: 50%;

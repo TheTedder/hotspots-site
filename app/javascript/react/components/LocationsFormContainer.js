@@ -30,19 +30,7 @@ const LocationsFormContainer = props => {
     )
   })
 
-  const clearForm = () => {
-    setNewLocation({
-      name: "",
-      address: "",
-      city: "",
-      state: "",
-      zip: "",
-      password_protected: "",
-      price: ""
-    })
-  }
-
-  const onLocationSubmitted = (location, formClear) => {
+  const onLocationSubmitted = (location) => {
     fetch(`/api/v1/locations`, {
       method: 'POST',
       credentials: "same-origin",
@@ -64,7 +52,6 @@ const LocationsFormContainer = props => {
     .then(response => response.json())
     .then(locationBody => {
       if (locationBody.location){
-        formClear()
         setErrorList([])
         setRedirect(locationBody.location.id)
       } else {
@@ -80,7 +67,7 @@ const LocationsFormContainer = props => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    onLocationSubmitted(newLocation, clearForm)
+    onLocationSubmitted(newLocation)
   }
 
   return(

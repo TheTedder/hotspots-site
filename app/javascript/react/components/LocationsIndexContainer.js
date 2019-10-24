@@ -37,10 +37,8 @@ const LocationsIndexContainer = props => {
   })
 
   return(
-    <div className="row">
-      <div className="small-8 small-centered columns">
-          {locationTiles}
-      </div>
+    <div className="grid-x grid-padding-x">
+      {locationTiles}
     </div>
   )
 }

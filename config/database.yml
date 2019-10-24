@@ -83,3 +83,4 @@ production:
   database: hotspots-site_production
   username: hotspots-site
   password: <%= ENV['HOTSPOTS-SITE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

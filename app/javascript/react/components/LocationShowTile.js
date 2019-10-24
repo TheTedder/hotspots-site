@@ -17,7 +17,7 @@ const LocationShowTile = props => {
   return (
     <div>
       <div className="location-tile primary card cell" style={{width: '100%'}}>
-        <div className="card-divider small-centered text-center location-show-header">
+        <div className="card-divider small-centered text-center location-show-header" id="show-name">
           <h2>{props.name}</h2>
         </div>
         <div className="card-section grid-x grid-padding-x">
@@ -26,12 +26,13 @@ const LocationShowTile = props => {
               <p>{props.address}</p>
               <p>{props.address2}</p>
             </div>
+            <hr/>
             <div className="location-show-rating">
-              <p>Overall Rating: {props.rating} </p>
+              <p>Overall Rating: {props.rating}</p>
             </div>
             {passwordProtectedBadge}
             <div className="location-show-price">
-              <p>Price: {props.price}</p>
+              <p>{props.price}</p>
             </div>
           </div>
           <div className="cell small-12 medium-6">

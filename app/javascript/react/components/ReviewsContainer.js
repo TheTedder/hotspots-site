@@ -5,7 +5,7 @@ import ReviewTile from './ReviewTile'
 const ReviewsContainer = props => {
   let reviewTiles = props.reviews.map( review => {
     return (
-      <div className="grid-x grid-margin-x" key={review.id}>
+      <div className="grid-x grid-padding-x" key={review.id}>
         <ReviewTile
          id={review.id}
          userId={review.user_id}

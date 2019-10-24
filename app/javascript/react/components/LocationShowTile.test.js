@@ -13,7 +13,7 @@ describe('<LocationShowTile />', () => {
         address="3 Third Street"
         address2="Boston, MA 01234"
         rating={5}
-        price="$12"
+        price="Price: $12"
         passwordProtected="yes"
       />
     )

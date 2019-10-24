@@ -34,15 +34,13 @@ const LocationShowPage = props => {
     .then(json => {
       let newLocation = {
         name: json.location.name,
-        rating: json.location.rating,
+        rating: json.location.average_rating,
         address: json.location.address,
         address2: json.location.address2,
         password_protected: null,
-        price: null
+        price: json.location.price_show
       }
-      if (json.location.price !== null && json.location.price !== ""){
-        newLocation.price = `\$${(Number.parseInt(json.location.price) /100).toFixed(2)}`
-      }
+    
       if (json.location.password_protected !== null && json.location.password_protected !== ""){
         let password_protected_options = {
           true: 'yes',

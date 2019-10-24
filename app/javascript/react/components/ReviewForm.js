@@ -53,34 +53,38 @@ const ReviewForm = (props) => {
   }
 
   return(
-    <div className="callout primary" id="new-form">
-      <h3>Add a new review!</h3>
-      <form onSubmit={onSubmitHandler}>
-        {stars}
-        <label htmlFor="body">
-          Description:
-        </label>
-        <textarea
-          name="body"
-          id="body"
-          value={newReview.body}
-          onChange={handleChange}
-        />
+    <div className="grid-x grid-padding-x">
+      <div className="cell">
+        <div className="callout primary" id="new-form">
+          <h3>Add a new review!</h3>
+          <form onSubmit={onSubmitHandler}>
+            {stars}
+            <label htmlFor="body">
+              Description:
+            </label>
+            <textarea
+              name="body"
+              id="body"
+              value={newReview.body}
+              onChange={handleChange}
+            />
 
-      <div className="row">
-        <div className="large-12 cell">
-          <textarea
-            name="body"
-            id="body"
-            value={newReview.body}
-            onChange={handleChange}
-            placeholder="Type Your Review"
-          />
+          <div className="row">
+            <div className="large-12 cell">
+              <textarea
+                name="body"
+                id="body"
+                value={newReview.body}
+                onChange={handleChange}
+                placeholder="Type Your Review"
+              />
+            </div>
+          </div>
+
+            <input type="submit" value="Submit" />
+          </form>
         </div>
       </div>
-
-        <input type="submit" value="Submit" />
-      </form>
     </div>
   )
 }

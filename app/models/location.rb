@@ -13,7 +13,7 @@ class Location < ApplicationRecord
 
   def average_rating
     if reviews.empty?
-      return nil
+      return "No Reviews Yet!"
     else
       sum = reviews.sum { |review| review.rating }
       return sum.fdiv(reviews.length)
@@ -22,5 +22,13 @@ class Location < ApplicationRecord
 
   def address2
     "#{city}, #{state} #{zip}"
+  end
+
+  def price_show
+    if price.nil?
+      return ""
+    else
+      return "Price: #{price == 0 ? "Free" : "$#{price.fdiv 100}"}"
+    end
   end
 end

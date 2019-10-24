@@ -29,6 +29,30 @@
   margin-bottom: 1rem;
 }
 
+#show-name{
+  padding-left: 43%;
+  font-weight: bold;
+}
+
+.location-show-address {
+  font-size: 1.5rem;
+}
+
+.location-show-rating {
+  font-size: 1.5rem;
+  padding-bottom: 12px;
+}
+
+.alert {
+  font-size: .75rem;
+  padding-bottom: 12px;
+}
+
+.location-show-price {
+  font-size: 1rem;
+  padding-top: 20px;
+}
+
 nav.top-bar {
   background-color: #2c3169;
   border-bottom: 3px ridge #4b5582;

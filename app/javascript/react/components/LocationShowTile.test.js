@@ -20,26 +20,24 @@ describe('<LocationShowTile />', () => {
   })
 
   it("renders a h2 tag with the location name", () => {
-    expect(wrapper.find('h2#show-name').text()).toEqual("Name: Dunkin")
+    expect(wrapper.find('.location-show-header').text()).toEqual("Dunkin")
   })
 
   it("renders a h3 tag with the rating", () => {
-    expect(wrapper.find('h3#show-rating').text()).toEqual("Rating: 5")
+    expect(wrapper.find('.location-show-rating').text()).toContain("Overall Rating: 5")
   })
 
   it("renders a p tag with the address", () => {
-    expect(wrapper.find('p#show-address1').text()).toEqual("3 Third Street")
+    let address = wrapper.find('.location-show-address').text()
+    expect(address).toContain("3 Third Street")
+    expect(address).toContain("Boston, MA 01234")
   })
 
-  it("renders a p tag with the city, state, zip", () => {
-    expect(wrapper.find('p#show-address2').text()).toEqual("Boston, MA 01234")
+  it("renders the price in dollars", () => {
+    expect(wrapper.find('.location-show-price').text()).toEqual("Price: $12")
   })
 
-  it("renders a p tag with the price", () => {
-    expect(wrapper.find('p#show-price').text()).toEqual("Price: $12")
-  })
-
-  it("renders a p tag with the password protected status", () => {
-    expect(wrapper.find('p#show-password-protect').text()).toEqual("Password Protected: yes")
+  it("renders a badge with the text 'password required'", () => {
+    expect(wrapper.find('.location-show-password-protected').text()).toEqual("Password Required")
   })
 })

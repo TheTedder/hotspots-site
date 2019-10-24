@@ -1,17 +1,44 @@
 import React from 'react'
 
 const LocationShowTile = props => {
+  let passwordProtectedBadge
+  if (props.passwordProtected === 'yes'){
+    passwordProtectedBadge = (
+      <div className="location-show-password-protected">
+        <p>
+          <span className="alert label">
+            Password Required
+          </span>
+        </p>
+      </div>
+    )
+  }
+
   return (
     <div>
-      <h2 id="show-name">{props.name}</h2>
-      <h3 id="show-rating">Rating: {props.rating}</h3>
-      <br/>
-      <h4>Address: </h4>
-      <p id="show-address1">{props.address}</p>
-      <p id="show-address2">{props.address2}</p>
-      <br/>
-      <p id="show-price">Price: {props.price}</p>
-      <p id="show-password-protect">Password Protected: {props.passwordProtected}</p>
+      <div className="location-tile primary card cell" style={{width: '100%'}}>
+        <div className="card-divider small-centered text-center location-show-header">
+          <h2>{props.name}</h2>
+        </div>
+        <div className="card-section grid-x grid-padding-x">
+          <div className="location-show-info cell small-12 medium-6">
+            <div className="location-show-address">
+              <p>{props.address}</p>
+              <p>{props.address2}</p>
+            </div>
+            <div className="location-show-rating">
+              <p>Overall Rating: {props.rating} </p>
+            </div>
+            {passwordProtectedBadge}
+            <div className="location-show-price">
+              <p>Price: {props.price}</p>
+            </div>
+          </div>
+          <div className="cell small-12 medium-6">
+            <img id="store-image" src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Mon_Ami_Boulangerie_%288119944759%29.jpg" alt="city-hall"/>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

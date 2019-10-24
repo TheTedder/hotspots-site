@@ -7,8 +7,8 @@ class FetchImageJob < ApplicationJob
   queue_as :default
 
   def perform(*location_ids)
-    location_ids.each do |id|
-      location = Location.find(id)
+    location_ids.each do |location_id|
+      location = Location.find(location_id)
       next if location.nil?
 
       uri = URI(PLACES_FIND_URL)
@@ -19,10 +19,11 @@ class FetchImageJob < ApplicationJob
         fields: 'photos'
       }
       uri.query = URI.encode_www_form(params)
-      place = Net::HTTP.get_response(uri)
-      next unless Net::HTTPSuccess === place
-      photoref = JSON.parse(place.body)['candidates'].first['photos'].first['photo_reference']
-      puts photoref
+      response = Net::HTTP.get_response(uri)
+      next unless Net::HTTPSuccess === response
+      place = JSON.parse(response.body)
+      next if place['status'] == 'ZERO_RESULTS'
+      photoref = place['candidates'].first['photos'].first['photo_reference']
       next if photoref.nil?
 
       uri = URI(PLACES_PHOTO_URL)
@@ -37,12 +38,7 @@ class FetchImageJob < ApplicationJob
       case response
       when Net::HTTPRedirection then
         location.update(photo_ref: response['location'])
-      when Net::HTTPSuccess then
-        Tempfile.open('img') do |file|
-          file.write(response.read_body)
-        end
       end
-      puts content_type
     end
   end
 end

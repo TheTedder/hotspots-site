@@ -4,7 +4,7 @@ import { UsaStates } from 'usa-states'
 
 const LocationsFormContainer = props => {
   const [errorList, setErrorList] = useState([])
-  const [redirect, setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(null)
   const [newLocation, setNewLocation] = useState({
     name: "",
     address: "",
@@ -66,7 +66,7 @@ const LocationsFormContainer = props => {
       if (locationBody.location){
         formClear()
         setErrorList([])
-        setRedirect(true)
+        setRedirect(locationBody.location.id)
       } else {
         setErrorList(locationBody.errors)
       }
@@ -74,8 +74,8 @@ const LocationsFormContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
     }
 
-  if (redirect) {
-    return <Redirect to="/locations" />
+  if (redirect !== null) {
+    return <Redirect to={`/locations/${redirect}`} />
   }
 
   const onSubmitHandler = (event) => {

@@ -18,4 +18,12 @@ FactoryBot.define do
     state { zip_state }
     zip { Faker::Address.zip_code(state_abbreviation: zip_state) }
   end
+
+  factory :review do
+    user
+    location
+    rating { 1..5.to_a.sample }
+    body { Faker::Lorem.paragraph } if [true,false].sample
+    speed_data { Random.rand(5000) } if [true,false].sample
+  end
 end

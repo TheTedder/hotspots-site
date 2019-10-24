@@ -18,7 +18,7 @@ const ReviewsContainer = props => {
   })
 
   return (
-    <div className="review-container grid-container">
+    <div className="review-container">
       {reviewTiles}
     </div>
   )

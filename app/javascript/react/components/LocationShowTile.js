@@ -28,7 +28,7 @@ const LocationShowTile = props => {
             </div>
             <hr/>
             <div className="location-show-rating">
-              <p>Overall Rating: {props.rating} </p>
+              <p>Overall Rating: {props.rating}/5</p>
             </div>
             {passwordProtectedBadge}
             <div className="location-show-price">

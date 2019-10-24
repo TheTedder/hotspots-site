@@ -16,3 +16,26 @@
  *= require font-awesome
 
  */
+
+.grid-container {
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+}
+
+#new-form {
+  // height: 18rem;
+  // width: 40rem;
+}
+
+#review-form-header {
+  font-style: bold;
+  margin-bottom: 1rem;
+}
+
+#review-form-rating {
+  padding-left: 0rem;
+}
+
+#speed-data-block {
+  padding-left: 2.5rem;
+}

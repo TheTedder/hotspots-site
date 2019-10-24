@@ -267,7 +267,6 @@ DEPENDENCIES
   dotenv-rails
   factory_bot
   faker
-  font-awesome-rails (~> 4.7)
   foundation-rails (~> 6.5)
   jbuilder (~> 2.5)
   jquery-rails

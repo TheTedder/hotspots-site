@@ -7,6 +7,28 @@ const ReviewForm = (props) => {
     speed_data: ""
   })
 
+  const handleStarClick = event => {
+    setNewReview({
+      ...newReview,
+      rating: event.currentTarget.title
+    })
+  }
+
+  let stars = []
+
+  for (let i = 0; i < 5; i++){
+    let starClass = 'fa fa-star '
+    if (i < Number.parseInt(newReview.rating)){
+      starClass += 'gold-star'
+    } else{
+      starClass += 'grey-star'
+    }
+
+    stars.push(
+      <i className={starClass} key={i} onClick={handleStarClick} title={i+1}></i>
+    )
+  }
+
   const handleChange = event => {
     setNewReview({
       ...newReview,
@@ -32,21 +54,9 @@ const ReviewForm = (props) => {
 
   return(
     <div className="callout primary" id="new-form">
-      <h1>Add a new review!</h1>
+      <h3>Add a new review!</h3>
       <form onSubmit={onSubmitHandler}>
-
-        <label htmlFor="rating">
-          Rating:
-        </label>
-        <select id="rating" name="rating" value={newReview.rating} onChange={handleChange}>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-
+        {stars}
         <label htmlFor="body">
           Description:
         </label>
@@ -57,17 +67,17 @@ const ReviewForm = (props) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="speed_data">
-          Speed Data(optional):
-        </label>
-        <input
-          type="number"
-          step={0.1}
-          name="speed_data"
-          id="speed_data"
-          value={newReview.speed_data}
-          onChange={handleChange}
-        />
+      <div className="row">
+        <div className="large-12 cell">
+          <textarea
+            name="body"
+            id="body"
+            value={newReview.body}
+            onChange={handleChange}
+            placeholder="Type Your Review"
+          />
+        </div>
+      </div>
 
         <input type="submit" value="Submit" />
       </form>

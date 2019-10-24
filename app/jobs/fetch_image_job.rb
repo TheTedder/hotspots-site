@@ -2,9 +2,9 @@ require 'net/http'
 require 'JSON'
 
 class FetchImageJob < ApplicationJob
+  queue_as :default
   PLACES_FIND_URL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
   PLACES_PHOTO_URL = 'https://maps.googleapis.com/maps/api/place/photo'
-  queue_as :default
 
   def perform(*location_ids)
     location_ids.each do |location_id|

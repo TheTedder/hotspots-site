@@ -16,7 +16,7 @@ class Location < ApplicationRecord
       return "No Reviews Yet!"
     else
       sum = reviews.sum { |review| review.rating }
-      return sum.fdiv(reviews.length)
+      return (sum / reviews.length).to_f
     end
   end
 

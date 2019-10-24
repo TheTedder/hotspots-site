@@ -1,5 +1,5 @@
 require 'net/http'
-require 'JSON'
+require 'json'
 
 class FetchImageJob < ApplicationJob
   queue_as :default

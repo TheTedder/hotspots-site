@@ -39,4 +39,26 @@ RSpec.describe Api::V1::LocationsController, type: :controller do
       expect(returned_json['location']['price']).to eq(location1.price)
     end
   end
+
+  describe 'POST#create' do
+    context "signed in user submits a valid location" do
+      it "should persist to the database" do
+        sign_in user1
+        test_location = {
+          location: {
+            name: "gourmet dumpling",
+            address: "22 beach st",
+            city: "Boston",
+            state: "MA",
+            zip: "02113",
+            user: user1
+          }
+        }
+
+        old_count = Location.count
+        post :create, params: test_location, format: :json
+        expect(Location.count).to eq(old_count + 1)
+      end
+    end
+  end
 end

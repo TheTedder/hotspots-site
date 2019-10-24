@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <script src="https://kit.fontawesome.com/476f9d8463.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <nav class="top-bar">
-    <h1><a href="/">HotspotsSite</a></h1>
+    <h1><a href="/">Hotsp<span id="wifi-icon"><i class="fa fa-wifi"></i></span>ts</a></h1>
 
     <section class="top-bar-section">
-      <ul class="right">
+      <ul class="menu">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'hollow button' %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: 'hollow button' %></li>
+          <li><%= link_to 'Sign In', new_user_session_path, class: 'hollow button' %></li>
         <%- end -%>
       </ul>
     </section>
@@ -29,9 +30,7 @@
     </div>
   <%- end -%>
 
-  <div class="grid-container">
-    <%= yield %>
-  </div>
+  <%= yield %>
 
   <%= javascript_include_tag 'application' %>
 

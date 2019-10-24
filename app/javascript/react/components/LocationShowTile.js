@@ -2,7 +2,7 @@ import React from 'react'
 
 const LocationShowTile = props => {
   let passwordProtectedBadge
-  if (props.passwordProtected === 'yes'){
+  if (props.passwordProtected){
     passwordProtectedBadge = (
       <div className="location-show-password-protected">
         <p>

@@ -14,7 +14,7 @@ const LocationShowPage = props => {
       address: "",
       address2: "",
       average_rating: "",
-      password_conversion: "",
+      password_protected: null,
       price_conversion: ""
     }
   )
@@ -77,7 +77,7 @@ const LocationShowPage = props => {
         address={locationData.address}
         address2={locationData.address2}
         price={locationData.price_conversion}
-        passwordProtected={locationData.password_conversion}
+        passwordProtected={locationData.password_protected}
       />
       {errorList.join(" and ")}
       <ReviewForm

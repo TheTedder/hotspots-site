@@ -24,18 +24,8 @@ class Location < ApplicationRecord
     "#{city}, #{state} #{zip}"
   end
 
-  def password_conversion
-    if password_protected == true
-      return "yes"
-    elsif password_protected == false
-      return "no"
-    else
-      return "Unknown"
-    end
-  end
-
   def price_conversion
-    if price != nil && price != ""
+    if !price.nil?
       return price / 100.to_f
     end
   end

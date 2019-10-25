@@ -59,6 +59,8 @@ const ReviewForm = (props) => {
           <h3>Add a new review!</h3>
           <form onSubmit={onSubmitHandler}>
             {stars}
+            <label htmlFor="speed-data">Speed (kb/s): </label>
+            <input name="speed_data" id="speed-data" type="number" value={newReview.speed_data} onChange={handleChange}/>
             <textarea
               name="body"
               id="body"

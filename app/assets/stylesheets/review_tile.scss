@@ -16,17 +16,11 @@ i.fa.fa-star {
 
 div.review-tile {
   div.header {
+    background-color: #2c3169;
+    color: white;
     div.rating {
       font-size: 1.5rem;
       line-height: 2rem;
-
-      div.rating-stars {
-        border-radius: 2rem;
-        background-color: #66a3cc;
-        display: inline;
-        padding: 0.3rem 1rem;
-        margin: 0.2rem;
-      }
     }
 
     p.speed-data-result {

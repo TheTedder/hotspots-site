@@ -45,7 +45,7 @@ const LocationShowPage = props => {
       setLocation(json.location)
       setReviews(json.location.reviews)
     })
-  }, [])
+  }, [reviews.length])
 
   const onReviewSubmitted = (newReview, formClear) => {
     fetch(`/api/v1/locations/${props.match.params.id}/reviews`, {

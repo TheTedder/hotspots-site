@@ -19,6 +19,7 @@ at the top right corner of the page to create an account.
 * Ruby
 * PostgreSQL
 * Yarn
+* bundler
 
 ## Installation
 1. Click the green "Clone or Download" on the top right corner of this page.

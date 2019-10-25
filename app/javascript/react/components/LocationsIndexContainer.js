@@ -32,6 +32,7 @@ const LocationsIndexContainer = props => {
         city={location.city}
         state={location.state}
         passwordProtected={location.password_protected}
+        photoRef={location.photo_ref}
       />
     )
   })

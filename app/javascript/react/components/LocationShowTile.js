@@ -14,6 +14,11 @@ const LocationShowTile = props => {
     )
   }
 
+  let image
+  if (props.photoRef !== null) {
+    image = <img src={props.photoRef}></img>
+  }
+
   return (
     <div>
       <div className="location-tile primary card cell" style={{width: '100%'}}>
@@ -36,7 +41,7 @@ const LocationShowTile = props => {
             </div>
           </div>
           <div className="cell small-12 medium-6">
-            <img id="store-image" src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Mon_Ami_Boulangerie_%288119944759%29.jpg" alt="city-hall"/>
+            {image}
           </div>
         </div>
       </div>

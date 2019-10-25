@@ -65,61 +65,75 @@ const LocationsFormContainer = props => {
     return <Redirect to={`/locations/${redirect}`} />
   }
 
+  let errors
+  if (errorList.length > 0){
+    errors = (
+      <div className="callout alert">
+        <p>{errorList.join(" and ")}</p>
+      </div>
+    )
+  }
+
   const onSubmitHandler = (event) => {
     event.preventDefault()
     onLocationSubmitted(newLocation)
   }
 
   return(
-    <div id="new-form">
-      <h1>Add a new Hotspot!</h1>
-      {errorList.join(" and ")}
-      <form className="callout" onSubmit={onSubmitHandler}>
+    <div className="grid-x grid-padding-x" id="new-form">
+      <div className="cell">
+        <h2>Add a new Hotspot!</h2>
+      </div>
+      <div className="cell">
+        {errors}
+      </div>
+      <div className="cell">
+        <form className="callout" onSubmit={onSubmitHandler}>
+          <label htmlFor="name">
+            Location Name:
+            <input type="text" id="name" name="name" value={newLocation.name} onChange={handleChange}/>
+          </label>
 
-        <label htmlFor="name">
-          Location Name:
-          <input type="text" id="name" name="name" value={newLocation.name} onChange={handleChange}/>
-        </label>
+          <label htmlFor="address">
+            Address:
+            <input type="text" id="address" name="address" value={newLocation.address} onChange={handleChange}/>
+          </label>
 
-        <label htmlFor="address">
-          Address:
-          <input type="text" id="address" name="address" value={newLocation.address} onChange={handleChange}/>
-        </label>
+          <label htmlFor="city">
+            City:
+            <input type="text" id="city" name="city" value={newLocation.city} onChange={handleChange}/>
+          </label>
 
-        <label htmlFor="city">
-          City:
-          <input type="text" id="city" name="city" value={newLocation.city} onChange={handleChange}/>
-        </label>
+          <label htmlFor="state">
+            State:
+            <select id="state" name="state" value={newLocation.state} onChange={handleChange}>
+              <option value=""></option>
+              {states}
+            </select>
+          </label>
 
-        <label htmlFor="state">
-          State:
-          <select id="state" name="state" value={newLocation.state} onChange={handleChange}>
-            <option value=""></option>
-            {states}
-          </select>
-        </label>
+          <label htmlFor="zip">
+            Zip Code:
+            <input type="text" id="zip" name="zip" value={newLocation.zip} onChange={handleChange}/>
+          </label>
 
-        <label htmlFor="zip">
-          Zip Code:
-          <input type="text" id="zip" name="zip" value={newLocation.zip} onChange={handleChange}/>
-        </label>
+          <label htmlFor="password-protected">
+            Password Protected?
+            <select id="password-protected" name="password_protected" value={newLocation.password_protected} onChange={handleChange}>
+              <option value=""></option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </label>
 
-        <label htmlFor="password-protected">
-          Password Protected?
-          <select id="password-protected" name="password_protected" value={newLocation.password_protected} onChange={handleChange}>
-            <option value=""></option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-        </label>
+          <label htmlFor="price">
+            Price:
+            <input type="number" id="price" name="price" value={newLocation.price} onChange={handleChange}/>
+          </label>
 
-        <label htmlFor="price">
-          Price:
-          <input type="number" id="price" name="price" value={newLocation.price} onChange={handleChange}/>
-        </label>
-
-        <input type="submit" value="Submit" />
-      </form>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
   )
 }

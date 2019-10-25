@@ -11,7 +11,7 @@ user10 = User.create(name: "Sheriff Woody", email: "reach4thesky@dizney.com", pa
 
 
 location1 = Location.create(user_id: user1.id, name: "The Well Coffee House", address: "1 State Street", city: "Boston", state: "MA", zip: "02111", price: 1000, password_protected: true)
-location2 = Location.create(user_id: user1.id, name: "Boston Athenaeum", address: "10 ½ Beacon Street", city: "Boston", state: "MA", zip: "02108", price: 500, password_protected: true)
+location2 = Location.create(user_id: user1.id, name: "Boston Athenaeum", address: "10 1/2 Beacon Street", city: "Boston", state: "MA", zip: "02108", price: 500, password_protected: true)
 location3 = Location.create(user_id: user1.id, name: "Boston Public Library", address: "700 Boylston Street", city: "Boston", state: "MA", zip: "02116")
 location4 = Location.create(user_id: user2.id, name: "Thinking Cup", address: "236 Hanover Street", city: "Boston", state: "MA", zip: "02113")
 location5 = Location.create(user_id: user2.id, name: "Ogawa Coffee", address: "10 Milk Street", city: "Boston", state: "MA", zip: "02108")

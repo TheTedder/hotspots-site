@@ -29,7 +29,7 @@ class Location < ApplicationRecord
     if price.nil?
       return ""
     else
-      return "Price: #{price == 0 ? "Free" : "$#{price.fdiv 100}"}"
+      return "Price: #{price == 0 ? "Free" : "$%.2f" % price.fdiv(100)}"
     end
   end
 end

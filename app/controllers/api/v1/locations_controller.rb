@@ -10,6 +10,12 @@ class Api::V1::LocationsController < ApiController
 
   def create
     new_location = Location.new(location_params)
+    begin
+      if params["location"].include?("price")
+        new_location.price = (Float(params["location"]["price"]) * 100).to_i
+      end
+    rescue ArgumentError
+    end
     new_location.user = current_user
     if new_location.save
       unless Rails.env.test?
@@ -23,6 +29,6 @@ class Api::V1::LocationsController < ApiController
 
   private
   def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :price, :password_protected)
+    params.require(:location).permit(:name, :address, :city, :state, :zip, :password_protected)
   end
 end

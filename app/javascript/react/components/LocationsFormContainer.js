@@ -106,8 +106,8 @@ const LocationsFormContainer = props => {
 
         <label htmlFor="password-protected">
           Password Protected?
-          <select id="password-protected" name="password-protected" value={newLocation.password_protected} onChange={handleChange}>
-            <option defaultValue=""></option>
+          <select id="password-protected" name="password_protected" value={newLocation.password_protected} onChange={handleChange}>
+            <option value=""></option>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>

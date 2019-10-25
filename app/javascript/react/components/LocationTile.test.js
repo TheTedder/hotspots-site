@@ -23,7 +23,7 @@ describe("LocationTile", () => {
   })
 
   it("renders a h3 tag with the location name", () => {
-    expect(wrapper.find('h3').text()).toEqual("Unos")
+    expect(wrapper.find('h3').text()).toContain("Unos")
   })
 
   it("renders the location city, state", () => {

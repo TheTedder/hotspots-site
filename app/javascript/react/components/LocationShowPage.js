@@ -20,6 +20,15 @@ const LocationShowPage = props => {
     }
   )
 
+  let errors
+  if (errorList.length > 0){
+    errors = (
+      <div className="callout alert">
+        {errorList.join(" and ")}
+      </div>
+    )
+  }
+
   useEffect(() => {
     fetch(`/api/v1/locations/${props.match.params.id}`)
     .then(response => {
@@ -81,7 +90,7 @@ const LocationShowPage = props => {
         passwordProtected={locationData.password_protected}
         photoRef={locationData.photo_ref}
       />
-      {errorList.join(" and ")}
+      {errors}
       <ReviewForm
         onReviewSubmitted={onReviewSubmitted}
       />

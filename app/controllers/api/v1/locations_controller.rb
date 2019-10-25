@@ -12,7 +12,7 @@ class Api::V1::LocationsController < ApiController
     new_location = Location.new(location_params)
     new_location.user = current_user
     if new_location.save
-      FetchImageJob.perform_later(new_location.id)
+      FetchImageJob.perform_now(new_location.id)
       render json: new_location
     else
       render json: {'errors': new_location.errors.full_messages}

@@ -24,9 +24,8 @@ const LocationTile = props => {
             {image}
           </div>
           <div className="cell small-10 large-8">
-            <h3><Link to={`/locations/${props.id}`}>{props.name}</Link></h3>
+            <h3><Link to={`/locations/${props.id}`}>{props.name}</Link> {lockIcon}</h3>
             <p className="location-index-citystate">{props.city}, {props.state}</p>
-            <p>{lockIcon}</p>
           </div>
         </div>
       </div>

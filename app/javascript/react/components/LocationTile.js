@@ -11,6 +11,13 @@ const LocationTile = props => {
     lockIcon = <i className={lockIconClass}></i>
   }
 
+  let dollarIcon
+  if (props.price !== null) {
+    if (props.price > 0) {
+      dollarIcon = <i className="fa fa-dollar-sign"></i>
+    }
+  }
+
   let image
   if (props.photoRef !== null) {
     image = <img className="location-tile-image" src={props.photoRef}></img>
@@ -24,7 +31,7 @@ const LocationTile = props => {
             {image}
           </div>
           <div className="cell small-10 large-8">
-            <h3><Link to={`/locations/${props.id}`}>{props.name}</Link> {lockIcon}</h3>
+            <h3><Link to={`/locations/${props.id}`}>{props.name}</Link> {lockIcon} {dollarIcon}</h3>
             <p className="location-index-citystate">{props.city}, {props.state}</p>
           </div>
         </div>

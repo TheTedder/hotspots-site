@@ -115,7 +115,7 @@ const LocationsFormContainer = props => {
 
         <label htmlFor="price">
           Price:
-          <input type="text" id="price" name="price" value={newLocation.price} onChange={handleChange}/>
+          <input type="number" id="price" name="price" value={newLocation.price} onChange={handleChange}/>
         </label>
 
         <input type="submit" value="Submit" />

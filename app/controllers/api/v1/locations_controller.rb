@@ -10,8 +10,11 @@ class Api::V1::LocationsController < ApiController
 
   def create
     new_location = Location.new(location_params)
-    if params["location"].include?("price")
-      new_location.price = (params["location"]["price"].to_f * 100).to_i
+    begin
+      if params["location"].include?("price")
+        new_location.price = (Float(params["location"]["price"]) * 100).to_i
+      end
+    rescue ArgumentError
     end
     new_location.user = current_user
     if new_location.save

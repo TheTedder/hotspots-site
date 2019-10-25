@@ -15,9 +15,19 @@ const LocationShowPage = props => {
       address2: "",
       average_rating: "",
       password_protected: null,
-      price_show: ""
+      price_show: "",
+      photo_ref: null
     }
   )
+
+  let errors
+  if (errorList.length > 0){
+    errors = (
+      <div className="callout alert">
+        {errorList.join(" and ")}
+      </div>
+    )
+  }
 
   useEffect(() => {
     fetch(`/api/v1/locations/${props.match.params.id}`)
@@ -78,8 +88,9 @@ const LocationShowPage = props => {
         address2={locationData.address2}
         price={locationData.price_show}
         passwordProtected={locationData.password_protected}
+        photoRef={locationData.photo_ref}
       />
-      {errorList.join(" and ")}
+      {errors}
       <ReviewForm
         onReviewSubmitted={onReviewSubmitted}
       />

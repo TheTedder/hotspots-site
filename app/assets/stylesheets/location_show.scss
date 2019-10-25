@@ -1,8 +1,3 @@
-#show-name{
-  padding-left: 43%;
-  font-weight: bold;
-}
-
 .location-show-address {
   font-size: 1.5rem;
 }
@@ -12,9 +7,10 @@
   padding-bottom: 12px;
 }
 
-.alert {
-  font-size: .75rem;
-  padding-bottom: 12px;
+.location-show-password-protected {
+  .alert {
+    font-size: 1rem;
+  }
 }
 
 .location-show-price {

@@ -3,6 +3,9 @@
 <head>
   <title>HotspotsSite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%- if current_user -%>
+    <meta name="user-id" content="<%= current_user.id %>" />
+  <%- end -%>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <script src="https://kit.fontawesome.com/476f9d8463.js" crossorigin="anonymous"></script>

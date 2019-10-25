@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import LocationTile from "./LocationTile"
 
@@ -23,6 +24,12 @@ const LocationsIndexContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+
+  let newButton
+  if (document.getElementsByName("user-id").length !== 0) {
+    newButton = <Link to="/locations/new" className="button">Submit a new HotSpot!</Link>
+  }
+
   const locationTiles = locations.map((location) => {
     return(
       <LocationTile
@@ -32,12 +39,17 @@ const LocationsIndexContainer = props => {
         city={location.city}
         state={location.state}
         passwordProtected={location.password_protected}
+        photoRef={location.photo_ref}
+        price={location.price}
       />
     )
   })
 
   return(
     <div className="grid-x grid-padding-x">
+      <div className="cell">
+        {newButton}
+      </div>
       {locationTiles}
     </div>
   )

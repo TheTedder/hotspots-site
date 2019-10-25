@@ -25,10 +25,7 @@ const ReviewTile = props => {
     <div className="cell review-tile card">
       <div className="header card-divider grid-x">
         <div className="rating cell small-6 float-left">
-          Rating:
-          <div className="rating-stars">
-            {stars}
-          </div>
+          Rating: {stars}
         </div>
         <p className="speed-data-result cell small-6 text-right">
           {speed}

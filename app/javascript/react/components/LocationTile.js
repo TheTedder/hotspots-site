@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const LocationTile = props => {
   let lockIcon
-  if ('passwordProtected' in props){
+  if (props.passwordProtected !== null){
     let lockIconClass = 'fa fa-lock'
     if (!props.passwordProtected){
       lockIconClass += '-open'

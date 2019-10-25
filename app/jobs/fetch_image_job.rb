@@ -22,7 +22,6 @@ class FetchImageJob < ApplicationJob
       response = Net::HTTP.get_response(uri)
       next unless Net::HTTPSuccess === response
       place = JSON.parse(response.body)
-      binding.pry
       next if place['status'] == 'ZERO_RESULTS'
       photoref = place['candidates'].first['photos'].first['photo_reference']
       next if photoref.nil?

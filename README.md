@@ -15,6 +15,11 @@ may not have been created yet!
 3. To be able to submit your own reviews or new locations, click on "Sign Up"
 at the top right corner of the page to create an account.
 
+## Requiremnts
+* Ruby
+* PostgreSQL
+* Yarn
+
 ## Installation
 1. Click the green "Clone or Download" on the top right corner of this page.
 2. Click on the clipboard icon to copy the URL to your clip board.

@@ -13,7 +13,7 @@ const LocationTile = props => {
 
   let image
   if (props.photoRef !== null) {
-    image = <img src={props.photoRef}></img>
+    image = <img className="location-tile-image" src={props.photoRef}></img>
   }
 
   return(

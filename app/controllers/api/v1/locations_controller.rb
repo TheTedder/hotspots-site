@@ -12,7 +12,9 @@ class Api::V1::LocationsController < ApiController
     new_location = Location.new(location_params)
     new_location.user = current_user
     if new_location.save
-      FetchImageJob.perform_now(new_location.id)
+      unless Rails.env.test?
+        FetchImageJob.perform_now(new_location.id)
+      end
       render json: new_location
     else
       render json: {'errors': new_location.errors.full_messages}
